@@ -49,10 +49,41 @@ class KhoaHoc extends React.Component{
 }
 
 
+class InputTag extends React.Component {
+  constructor() {
+    super();
+    this.getInfo = this.getInfo.bind(this);
+    this.getSelectBox = this.getSelectBox.bind(this);
+
+  }
+
+  getInfo() {
+    console.log(this.refs.txtName.value);
+  }
+
+  getSelectBox() {
+    console.log(this.refs.sl.value);
+  }
+
+  render(){
+    return(
+      <div>
+        <input type="text" ref="txtName" onKeyUp={this.getInfo}/>
+        <select ref="sl" onChange={this.getSelectBox}>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    );
+  }
+}
+
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <div>
+    <InputTag/>
     <KD name="ReactJS" teacher="KD" tongHocVien="10">Mon hoc reactJS</KD>
     <KD name="NodeJS" teacher="KD1" tongHocVien="20">Mon hoc NodeJS</KD>
   </div>
